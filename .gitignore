@@ -1,2 +1,3 @@
 .DS_Store
 .vscode/*
+dynamic-imports/__pycache__

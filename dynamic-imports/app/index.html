@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parent Application</title>
+  </head>
+  <body>
+    <h1>Parent Application</h1>
+    <button id="load-mf1">Load Micro Frontend 1</button>
+    <button id="load-mf2">Load Micro Frontend 2</button>
+    <div id="microfrontend-container"></div>
+    <script>
+      const microfrontendContainer = document.getElementById(
+        "microfrontend-container"
+      );
+
+      document
+        .getElementById("load-mf1")
+        .addEventListener("click", async () => {
+          response = await fetch("http://localhost:3011");
+          const htmlContent = await response.text();
+          microfrontendContainer.innerHTML = htmlContent;
+        });
+
+      document
+        .getElementById("load-mf2")
+        .addEventListener("click", async () => {
+          response = await fetch("http://localhost:3012");
+          const htmlContent = await response.text();
+          microfrontendContainer.innerHTML = htmlContent;
+        });
+    </script>
+  </body>
+</html>
